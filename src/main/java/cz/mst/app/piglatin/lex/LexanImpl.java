@@ -4,8 +4,8 @@ import static cz.mst.app.piglatin.lex.TokenType.DOTHYPHEN;
 import static cz.mst.app.piglatin.lex.TokenType.WHITESPACE;
 import static cz.mst.app.piglatin.lex.TokenType.WORD;
 
+import java.io.File;
 import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Objects;
 import java.util.stream.Stream;
 
@@ -27,8 +27,12 @@ public class LexanImpl implements Lexan, InitializingBean {
 	 */
 	@Override
 	public void afterPropertiesSet() throws Exception {
+		File inputFile = new File(inputFileName);
+		if (!inputFile.isFile()) {
+			throw new PiglatinException("Input file '" + inputFileName + "' doesn't exist, set 'piglatin.input.file' property correctly!");
+		}
 		// read content of the file to string builder
-		input.append(Files.readString(Paths.get(inputFileName)));
+		input.append(Files.readString(inputFile.toPath()));
 		/*
 		try (Stream<String> st = Files.lines(Paths.get(inputFileName))) {
 			st.forEach(input::append);
