@@ -1,0 +1,15 @@
+As any developer can tell you deploying any code carries technical risk. Software might crash or bugs might emerge. 
+Deploying features carries ad'ditional user-related risk. Users might hate the new features or run into account management issues. 
+With traditional deployments all of this risk is absorbed at once.
+
+Feature flags give developers the ability to SeParate these risks dea'ling with one at a time. They can put the new code into production 
+see how that goes and THen turn on the feaTures later once it's clear the code is working as expected.
+
+Hello
+apple
+stairway
+can't
+end.
+this-thing
+Beach
+McCloud
